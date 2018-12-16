@@ -16,8 +16,7 @@ var Inbox = function () {
             cache: false,
             url: url,
             dataType: "html",
-            success: function(res) 
-            {
+            success: function (res) {
                 toggleButton(el);
 
                 $('.inbox-nav > li.active').removeClass('active');
@@ -29,8 +28,7 @@ var Inbox = function () {
                 App.fixContentHeight();
                 App.initUniform();
             },
-            error: function(xhr, ajaxOptions, thrownError)
-            {
+            error: function (xhr, ajaxOptions, thrownError) {
                 toggleButton(el);
             },
             async: false
@@ -43,14 +41,13 @@ var Inbox = function () {
         loading.show();
         content.html('');
         toggleButton(el);
-        
+
         $.ajax({
             type: "GET",
             cache: false,
             url: url,
             dataType: "html",
-            success: function(res) 
-            {
+            success: function (res) {
                 toggleButton(el);
 
                 if (resetMenu) {
@@ -63,8 +60,7 @@ var Inbox = function () {
                 App.fixContentHeight();
                 App.initUniform();
             },
-            error: function(xhr, ajaxOptions, thrownError)
-            {
+            error: function (xhr, ajaxOptions, thrownError) {
                 toggleButton(el);
             },
             async: false
@@ -94,7 +90,7 @@ var Inbox = function () {
             }).fail(function () {
                 $('<span class="alert alert-error"/>')
                     .text('Upload server currently unavailable - ' +
-                    new Date())
+                        new Date())
                     .appendTo('#fileupload');
             });
         }
@@ -113,8 +109,7 @@ var Inbox = function () {
             cache: false,
             url: url,
             dataType: "html",
-            success: function(res) 
-            {
+            success: function (res) {
                 toggleButton(el);
 
                 $('.inbox-nav > li.active').removeClass('active');
@@ -130,8 +125,7 @@ var Inbox = function () {
                 App.fixContentHeight();
                 App.initUniform();
             },
-            error: function(xhr, ajaxOptions, thrownError)
-            {
+            error: function (xhr, ajaxOptions, thrownError) {
                 toggleButton(el);
             },
             async: false
@@ -151,8 +145,7 @@ var Inbox = function () {
             cache: false,
             url: url,
             dataType: "html",
-            success: function(res) 
-            {
+            success: function (res) {
                 toggleButton(el);
 
                 $('.inbox-nav > li.active').removeClass('active');
@@ -169,8 +162,7 @@ var Inbox = function () {
                 App.fixContentHeight();
                 App.initUniform();
             },
-            error: function(xhr, ajaxOptions, thrownError)
-            {
+            error: function (xhr, ajaxOptions, thrownError) {
                 toggleButton(el);
             },
             async: false
@@ -189,8 +181,7 @@ var Inbox = function () {
             cache: false,
             url: url,
             dataType: "html",
-            success: function(res) 
-            {
+            success: function (res) {
                 toggleButton(el);
 
                 $('.inbox-nav > li.active').removeClass('active');
@@ -201,8 +192,7 @@ var Inbox = function () {
                 App.fixContentHeight();
                 App.initUniform();
             },
-            error: function(xhr, ajaxOptions, thrownError)
-            {
+            error: function (xhr, ajaxOptions, thrownError) {
                 toggleButton(el);
             },
             async: false
@@ -232,7 +222,7 @@ var Inbox = function () {
         });
     }
 
-    var toggleButton = function(el) {
+    var toggleButton = function (el) {
         if (typeof el == 'undefined') {
             return;
         }
@@ -298,7 +288,7 @@ var Inbox = function () {
             } else if (App.getURLParameter("a") === "compose") {
                 loadCompose();
             } else {
-               $('.inbox-nav > li.inbox > a').click();
+                $('.inbox-nav > li.inbox > a').click();
             }
 
         }

@@ -20,11 +20,11 @@ var UIDatepaginator = function () {
 
             //sample #3
             $('#datepaginator_sample_4').datepaginator({
-                onSelectedDateChanged: function(event, date) {
-                  alert("Selected date: " + moment(date).format("Do, MMM YYYY"));
+                onSelectedDateChanged: function (event, date) {
+                    alert("Selected date: " + moment(date).format("Do, MMM YYYY"));
                 }
             });
-            
+
         } // end init
 
     };

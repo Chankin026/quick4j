@@ -1,20 +1,20 @@
-define([ 'jquery', 'underscore', 'backbone', 'views/home/main' ], function($,
-        _, Backbone, homeMainView) {
+define(['jquery', 'underscore', 'backbone', 'views/home/main'], function ($,
+                                                                          _, Backbone, homeMainView) {
     var AppRouter = Backbone.Router.extend({
-        routes : {
-            '*actions' : 'defaultAction'
+        routes: {
+            '*actions': 'defaultAction'
         },
-        defaultAction : function(actions) {
+        defaultAction: function (actions) {
             homeMainView.render();
         }
     });
 
-    var initialize = function() {
+    var initialize = function () {
         var app_router = new AppRouter();
         Backbone.history.start();
     };
 
     return {
-        initialize : initialize
+        initialize: initialize
     };
 });

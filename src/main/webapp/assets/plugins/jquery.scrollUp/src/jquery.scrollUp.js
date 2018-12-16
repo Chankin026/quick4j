@@ -1,4 +1,4 @@
-(function($, window, document) {
+(function ($, window, document) {
 
     // Main function
     $.fn.scrollUp = function (options) {
@@ -11,21 +11,21 @@
     };
 
     // Init
-    $.fn.scrollUp.init = function(options) {
+    $.fn.scrollUp.init = function (options) {
 
         // Apply any options to the settings, override the defaults
         var o = $.fn.scrollUp.settings = $.extend({}, $.fn.scrollUp.defaults, options),
 
-        // Create element
-		$self;
-		if (o.scrollTrigger) {
-			$self = $(o.scrollTrigger);
-		} else {
-	        $self = $('<a/>', {
-	            id: o.scrollName,
-	            href: '#top'
-	        });
-		}
+            // Create element
+            $self;
+        if (o.scrollTrigger) {
+            $self = $(o.scrollTrigger);
+        } else {
+            $self = $('<a/>', {
+                id: o.scrollName,
+                href: '#top'
+            });
+        }
 
         // Set scrollTitle if there is one
         if (o.scrollTitle) {
@@ -48,7 +48,13 @@
 
         // Active point overlay
         if (o.activeOverlay) {
-            $('<div/>', { id: o.scrollName + '-active' }).css({ position: 'absolute', 'top': o.scrollDistance + 'px', width: '100%', borderTop: '1px dotted' + o.activeOverlay, zIndex: o.zIndex }).appendTo('body');
+            $('<div/>', {id: o.scrollName + '-active'}).css({
+                position: 'absolute',
+                'top': o.scrollDistance + 'px',
+                width: '100%',
+                borderTop: '1px dotted' + o.activeOverlay,
+                zIndex: o.zIndex
+            }).appendTo('body');
         }
 
         // Switch animation type
@@ -56,17 +62,17 @@
 
         switch (o.animation) {
             case 'fade':
-                animIn  = 'fadeIn';
+                animIn = 'fadeIn';
                 animOut = 'fadeOut';
                 animSpeed = o.animationSpeed;
                 break;
             case 'slide':
-                animIn  = 'slideDown';
+                animIn = 'slideDown';
                 animOut = 'slideUp';
                 animSpeed = o.animationSpeed;
                 break;
             default:
-                animIn  = 'show';
+                animIn = 'show';
                 animOut = 'hide';
                 animSpeed = 0;
         }
@@ -82,8 +88,8 @@
         var triggerVisible = false;
 
         // Scroll function
-        scrollEvent = $(window).scroll(function() {
-            if ( $(window).scrollTop() > scrollDis ) {
+        scrollEvent = $(window).scroll(function () {
+            if ($(window).scrollTop() > scrollDis) {
                 if (!triggerVisible) {
                     $self[animIn](animSpeed);
                     triggerVisible = true;
@@ -108,7 +114,7 @@
         }
 
         // To the top
-        $self.click(function(e) {
+        $self.click(function (e) {
             e.preventDefault();
 
             $('html, body').animate({
@@ -136,18 +142,18 @@
     };
 
     // Destroy scrollUp plugin and clean all modifications to the DOM
-    $.fn.scrollUp.destroy = function (scrollEvent){
-        $.removeData( document.body, 'scrollUp' );
-        $( '#' + $.fn.scrollUp.settings.scrollName ).remove();
-        $( '#' + $.fn.scrollUp.settings.scrollName + '-active' ).remove();
+    $.fn.scrollUp.destroy = function (scrollEvent) {
+        $.removeData(document.body, 'scrollUp');
+        $('#' + $.fn.scrollUp.settings.scrollName).remove();
+        $('#' + $.fn.scrollUp.settings.scrollName + '-active').remove();
 
         // If 1.7 or above use the new .off()
         if ($.fn.jquery.split('.')[1] >= 7) {
-            $(window).off( 'scroll', scrollEvent );
+            $(window).off('scroll', scrollEvent);
 
-        // Else use the old .unbind()
+            // Else use the old .unbind()
         } else {
-            $(window).unbind( 'scroll', scrollEvent );
+            $(window).unbind('scroll', scrollEvent);
         }
     };
 

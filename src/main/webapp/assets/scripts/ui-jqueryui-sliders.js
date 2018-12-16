@@ -1,4 +1,3 @@
-
 var UIjQueryUISliders = function () {
 
     return {
@@ -7,7 +6,7 @@ var UIjQueryUISliders = function () {
             // basic
             $(".slider-basic").slider(); // basic sliders
 
-             // vertical range sliders
+            // vertical range sliders
             $("#slider-range").slider({
                 isRTL: App.isRTL(),
                 range: true,
@@ -16,7 +15,7 @@ var UIjQueryUISliders = function () {
                     $("#slider-range-amount").text("$" + ui.values[0] + " - $" + ui.values[1]);
                 }
             });
-            
+
             // snap inc
             $("#slider-snap-inc").slider({
                 isRTL: App.isRTL(),

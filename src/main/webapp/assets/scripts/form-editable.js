@@ -68,24 +68,24 @@ var FormEditable = function () {
             url: '/groups',
             response: function (settings) {
                 this.responseText = [{
-                        value: 0,
-                        text: 'Guest'
-                    }, {
-                        value: 1,
-                        text: 'Service'
-                    }, {
-                        value: 2,
-                        text: 'Customer'
-                    }, {
-                        value: 3,
-                        text: 'Operator'
-                    }, {
-                        value: 4,
-                        text: 'Support'
-                    }, {
-                        value: 5,
-                        text: 'Admin'
-                    }
+                    value: 0,
+                    text: 'Guest'
+                }, {
+                    value: 1,
+                    text: 'Service'
+                }, {
+                    value: 2,
+                    text: 'Customer'
+                }, {
+                    value: 3,
+                    text: 'Operator'
+                }, {
+                    value: 4,
+                    text: 'Support'
+                }, {
+                    value: 5,
+                    text: 'Admin'
+                }
                 ];
                 log(settings, this);
             }
@@ -128,19 +128,19 @@ var FormEditable = function () {
             prepend: "not selected",
             inputclass: 'form-control',
             source: [{
-                    value: 1,
-                    text: 'Male'
-                }, {
-                    value: 2,
-                    text: 'Female'
-                }
+                value: 1,
+                text: 'Male'
+            }, {
+                value: 2,
+                text: 'Female'
+            }
             ],
             display: function (value, sourceData) {
                 var colors = {
-                    "": "gray",
-                    1: "green",
-                    2: "blue"
-                },
+                        "": "gray",
+                        1: "green",
+                        2: "blue"
+                    },
                     elem = $.grep(sourceData, function (o) {
                         return o.value == value;
                     });
@@ -160,7 +160,7 @@ var FormEditable = function () {
         });
 
         $('#vacation').editable({
-            rtl : App.isRTL() 
+            rtl: App.isRTL()
         });
 
         $('#dob').editable({
@@ -181,7 +181,7 @@ var FormEditable = function () {
                 if (v && v.getDate() == 10) return 'Day cant be 10!';
             },
             datetimepicker: {
-                rtl : App.isRTL(),
+                rtl: App.isRTL(),
                 todayBtn: 'linked',
                 weekStart: 1
             }
@@ -192,7 +192,7 @@ var FormEditable = function () {
         });
 
         $('#note').editable({
-            showbuttons : (App.isRTL() ? 'left' : 'right')
+            showbuttons: (App.isRTL() ? 'left' : 'right')
         });
 
         $('#pencil').click(function (e) {
@@ -209,25 +209,25 @@ var FormEditable = function () {
             pk: 1,
             limit: 3,
             source: [{
-                    value: 1,
-                    text: 'banana'
-                }, {
-                    value: 2,
-                    text: 'peach'
-                }, {
-                    value: 3,
-                    text: 'apple'
-                }, {
-                    value: 4,
-                    text: 'watermelon'
-                }, {
-                    value: 5,
-                    text: 'orange'
-                }
+                value: 1,
+                text: 'banana'
+            }, {
+                value: 2,
+                text: 'peach'
+            }, {
+                value: 3,
+                text: 'apple'
+            }, {
+                value: 4,
+                text: 'watermelon'
+            }, {
+                value: 5,
+                text: 'orange'
+            }
             ]
         });
 
-        $('#fruits').on('shown', function(e, reason) {
+        $('#fruits').on('shown', function (e, reason) {
             App.initUniform();
         });
 
@@ -535,7 +535,7 @@ var FormEditable = function () {
 
             // init editable elements
             initEditables();
-            
+
             // init editable toggler
             $('#enable').click(function () {
                 $('#user .editable').editable('toggleDisabled');

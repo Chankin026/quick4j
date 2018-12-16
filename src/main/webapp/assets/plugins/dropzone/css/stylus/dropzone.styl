@@ -38,7 +38,7 @@
   .dz-default.dz-message
     opacity 1
     transition opacity 0.3s ease-in-out
-    
+
     image "../images/spritemap.png" 428px 406px
     background-repeat no-repeat
     background-position 0 0
@@ -68,8 +68,9 @@
   &.dz-started
     .dz-message
       display block
-      opacity 0 // Rather fade out nicely
+      opacity 0
 
+// Rather fade out nicely
 
 .dropzone
 .dropzone-previews
@@ -78,9 +79,7 @@
     box-shadow 1px 1px 4px rgba(0, 0, 0, 0.16)
     font-size 14px
 
-
     .dz-details
-
       // Not implemented yet. This is the CSS definition of the file
       // content as text.
       // .content
@@ -95,7 +94,6 @@
       //   line-height 100%
       //   cursor default
       //   word-wrap break-word
-
     &.dz-image-preview
       &:hover
         .dz-details
@@ -127,8 +125,6 @@
     .dz-success-mark
       background-position -268px -163px
 
-
-
     .dz-progress
       .dz-upload
         animation loading 0.4s linear infinite
@@ -139,18 +135,16 @@
         left 0
         width 0%
         height 100%
-        
+
         image "../images/spritemap.png" 428px 406px
         background-repeat repeat-x
         background-position 0px -400px
-
 
     &.dz-success
       .dz-progress
         display block
         opacity 0
         transition opacity 0.4s ease-in-out
-
 
     // Disabled for now until I find a better way to cope with long filenames
     // .filename

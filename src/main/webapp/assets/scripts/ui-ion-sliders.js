@@ -46,23 +46,23 @@ var UIIonSliders = function () {
                 from: 55000,
                 hideText: true
             });
-            
+
             $("#range_3").ionRangeSlider({
                 type: "double",
                 postfix: " miles",
                 step: 10000,
                 from: 25000000,
                 to: 35000000,
-                onChange: function(obj){
+                onChange: function (obj) {
                     var t = "";
-                    for(var prop in obj) {
+                    for (var prop in obj) {
                         t += prop + ": " + obj[prop] + "\r\n";
                     }
                     $("#result").html(t);
                 }
             });
 
-            $("#updateLast").on("click", function(){
+            $("#updateLast").on("click", function () {
 
                 $("#range_3").ionRangeSlider("update", {
                     min: Math.round(10000 + Math.random() * 40000),
@@ -73,7 +73,7 @@ var UIIonSliders = function () {
                 });
 
             });
-            
+
         }
 
     };

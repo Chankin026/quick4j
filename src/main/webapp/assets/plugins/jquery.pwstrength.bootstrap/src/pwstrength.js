@@ -92,25 +92,25 @@
                 wordUppercase: function (options, word, score) {
                     return word.match(/[A-Z]/) && score;
                 },
-                wordOneNumber : function (options, word, score) {
+                wordOneNumber: function (options, word, score) {
                     return word.match(/\d+/) && score;
                 },
-                wordThreeNumbers : function (options, word, score) {
+                wordThreeNumbers: function (options, word, score) {
                     return word.match(/(.*[0-9].*[0-9].*[0-9])/) && score;
                 },
-                wordOneSpecialChar : function (options, word, score) {
+                wordOneSpecialChar: function (options, word, score) {
                     return word.match(/.[!,@,#,$,%,\^,&,*,?,_,~]/) && score;
                 },
-                wordTwoSpecialChar : function (options, word, score) {
+                wordTwoSpecialChar: function (options, word, score) {
                     return word.match(/(.*[!,@,#,$,%,\^,&,*,?,_,~].*[!,@,#,$,%,\^,&,*,?,_,~])/) && score;
                 },
-                wordUpperLowerCombo : function (options, word, score) {
+                wordUpperLowerCombo: function (options, word, score) {
                     return word.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/) && score;
                 },
-                wordLetterNumberCombo : function (options, word, score) {
+                wordLetterNumberCombo: function (options, word, score) {
                     return word.match(/([a-zA-Z])/) && word.match(/([0-9])/) && score;
                 },
-                wordLetterNumberCharCombo : function (options, word, score) {
+                wordLetterNumberCharCombo: function (options, word, score) {
                     return word.match(/([a-zA-Z0-9].*[!,@,#,$,%,\^,&,*,?,_,~])|([!,@,#,$,%,\^,&,*,?,_,~].*[a-zA-Z0-9])/) && score;
                 }
             }
@@ -311,7 +311,7 @@
         } else if (typeof method === "object" || !method) {
             result = methods.init.apply(this, arguments);
         } else {
-            $.error("Method " +  method + " does not exist on jQuery.pwstrength");
+            $.error("Method " + method + " does not exist on jQuery.pwstrength");
         }
         return result;
     };

@@ -29,12 +29,12 @@
  *
 * ====================================================================== */
 
-(function($) {
+(function ($) {
     "use strict";
 
-    $.fn.TouchSpin = function(options) {
+    $.fn.TouchSpin = function (options) {
 
-        return this.each(function() {
+        return this.each(function () {
 
             var settings,
                 originalinput = $(this),
@@ -50,8 +50,7 @@
 
             init();
 
-            function init()
-            {
+            function init() {
                 if (originalinput.data("alreadyinitialized")) {
                     return;
                 }
@@ -71,8 +70,7 @@
                 _bindEventsInterface();
             }
 
-            function _initSettings()
-            {
+            function _initSettings() {
                 settings = $.extend({
                     min: 0,
                     max: 100,
@@ -89,11 +87,10 @@
                 }, options);
             }
 
-            function _buildHtml()
-            {
+            function _buildHtml() {
                 originalinput.data("initvalue", originalinput.val()).val(Number(originalinput.val()).toFixed(settings.decimals));
 
-                var html = '<div class="input-group bootstrap-touchspin '+(settings.inputGroupClass ? settings.inputGroupClass : '')+'" style=""><span class="input-group-btn"><button class="btn '+(settings.spinDownClass ? settings.spinDownClass : 'btn-default')+' bootstrap-touchspin-down" type="button">-</button></span><span class="input-group-addon bootstrap-touchspin-prefix">' + settings.prefix + '</span><span class="input-group-addon bootstrap-touchspin-postfix">' + settings.postfix + '</span><span class="input-group-btn"><button class="btn '+(settings.spinUpClass ? settings.spinUpClass : 'btn-default')+' bootstrap-touchspin-up" type="button">+</button></span></div>';
+                var html = '<div class="input-group bootstrap-touchspin ' + (settings.inputGroupClass ? settings.inputGroupClass : '') + '" style=""><span class="input-group-btn"><button class="btn ' + (settings.spinDownClass ? settings.spinDownClass : 'btn-default') + ' bootstrap-touchspin-down" type="button">-</button></span><span class="input-group-addon bootstrap-touchspin-prefix">' + settings.prefix + '</span><span class="input-group-addon bootstrap-touchspin-postfix">' + settings.postfix + '</span><span class="input-group-btn"><button class="btn ' + (settings.spinUpClass ? settings.spinUpClass : 'btn-default') + ' bootstrap-touchspin-up" type="button">+</button></span></div>';
 
                 container = $(html).insertBefore(originalinput);
 
@@ -104,8 +101,7 @@
                 originalinput.addClass("form-control");
             }
 
-            function _initElements()
-            {
+            function _initElements() {
                 elements = {
                     down: $(".bootstrap-touchspin-down", container),
                     up: $(".bootstrap-touchspin-up", container),
@@ -115,9 +111,8 @@
                 };
             }
 
-            function _bindEvents()
-            {
-                originalinput.on("keydown", function(ev) {
+            function _bindEvents() {
+                originalinput.on("keydown", function (ev) {
                     var code = ev.keyCode || ev.which;
 
                     if (code === 38) {
@@ -136,7 +131,7 @@
                     }
                 });
 
-                originalinput.on("keyup", function(ev) {
+                originalinput.on("keyup", function (ev) {
                     var code = ev.keyCode || ev.which;
 
                     if (code === 38) {
@@ -150,7 +145,7 @@
                     }
                 });
 
-                elements.down.on("keydown", function(ev) {
+                elements.down.on("keydown", function (ev) {
                     var code = ev.keyCode || ev.which;
 
                     if (code === 32 || code === 13) {
@@ -162,7 +157,7 @@
                     }
                 });
 
-                elements.down.on("keyup", function(ev) {
+                elements.down.on("keyup", function (ev) {
                     var code = ev.keyCode || ev.which;
 
                     if (code === 32 || code === 13) {
@@ -170,7 +165,7 @@
                     }
                 });
 
-                elements.up.on("keydown", function(ev) {
+                elements.up.on("keydown", function (ev) {
                     var code = ev.keyCode || ev.which;
 
                     if (code === 32 || code === 13) {
@@ -182,7 +177,7 @@
                     }
                 });
 
-                elements.up.on("keyup", function(ev) {
+                elements.up.on("keyup", function (ev) {
                     var code = ev.keyCode || ev.which;
 
                     if (code === 32 || code === 13) {
@@ -190,7 +185,7 @@
                     }
                 });
 
-                elements.down.on("mousedown touchstart", function(ev) {
+                elements.down.on("mousedown touchstart", function (ev) {
                     downOnce();
                     startDownSpin();
 
@@ -198,7 +193,7 @@
                     ev.stopPropagation();
                 });
 
-                elements.up.on("mousedown touchstart", function(ev) {
+                elements.up.on("mousedown touchstart", function (ev) {
                     upOnce();
                     startUpSpin();
 
@@ -206,7 +201,7 @@
                     ev.stopPropagation();
                 });
 
-                elements.up.on("mouseout touchleave touchend touchcancel", function(ev) {
+                elements.up.on("mouseout touchleave touchend touchcancel", function (ev) {
                     if (!spinning) {
                         return;
                     }
@@ -215,7 +210,7 @@
                     stopSpin();
                 });
 
-                elements.down.on("mouseout touchleave touchend touchcancel", function(ev) {
+                elements.down.on("mouseout touchleave touchend touchcancel", function (ev) {
                     if (!spinning) {
                         return;
                     }
@@ -224,7 +219,7 @@
                     stopSpin();
                 });
 
-                elements.down.on("mousemove touchmove", function(ev) {
+                elements.down.on("mousemove touchmove", function (ev) {
                     if (!spinning) {
                         return;
                     }
@@ -233,7 +228,7 @@
                     ev.preventDefault();
                 });
 
-                elements.up.on("mousemove touchmove", function(ev) {
+                elements.up.on("mousemove touchmove", function (ev) {
                     if (!spinning) {
                         return;
                     }
@@ -242,7 +237,7 @@
                     ev.preventDefault();
                 });
 
-                $(document).on("mouseup touchend touchcancel", function(ev) {
+                $(document).on("mouseup touchend touchcancel", function (ev) {
                     if (!spinning) {
                         return;
                     }
@@ -251,7 +246,7 @@
                     stopSpin();
                 });
 
-                $(document).on("mousemove touchmove scroll scrollstart", function(ev) {
+                $(document).on("mousemove touchmove scroll scrollstart", function (ev) {
                     if (!spinning) {
                         return;
                     }
@@ -261,7 +256,7 @@
                 });
 
                 if (settings.mousewheel) {
-                    originalinput.bind("mousewheel DOMMouseScroll", function(ev) {
+                    originalinput.bind("mousewheel DOMMouseScroll", function (ev) {
                         var delta = ev.originalEvent.wheelDelta || -ev.originalEvent.detail;
 
                         ev.stopPropagation();
@@ -278,25 +273,25 @@
             }
 
             function _bindEventsInterface() {
-                originalinput.on('touchspin.uponce', function() {
+                originalinput.on('touchspin.uponce', function () {
                     stopSpin();
                     upOnce();
                 });
 
-                originalinput.on('touchspin.downonce', function() {
+                originalinput.on('touchspin.downonce', function () {
                     stopSpin();
                     downOnce();
                 });
 
-                originalinput.on('touchspin.startupspin', function() {
+                originalinput.on('touchspin.startupspin', function () {
                     startUpSpin();
                 });
 
-                originalinput.on('touchspin.startdownspin', function() {
+                originalinput.on('touchspin.startdownspin', function () {
                     startDownSpin();
                 });
 
-                originalinput.on('touchspin.stopspin', function() {
+                originalinput.on('touchspin.stopspin', function () {
                     stopSpin();
                 });
             }
@@ -341,7 +336,7 @@
                     return settings.step;
                 }
                 else {
-                    var boosted = Math.pow(2,Math.floor(spincount / settings.boostat)) * settings.step;
+                    var boosted = Math.pow(2, Math.floor(spincount / settings.boostat)) * settings.step;
 
                     if (settings.maxboostedstep) {
                         if (boosted > settings.maxboostedstep) {
@@ -363,7 +358,7 @@
                 var initvalue = value,
                     boostedstep = _getBoostedStep();
 
-                value =  value + boostedstep;
+                value = value + boostedstep;
 
                 if (value > settings.max) {
                     stopSpin();
@@ -408,8 +403,8 @@
                 spincount = 0;
                 spinning = "down";
 
-                downDelayTimeout = setTimeout(function() {
-                    downSpinTimer = setInterval(function() {
+                downDelayTimeout = setTimeout(function () {
+                    downSpinTimer = setInterval(function () {
                         spincount++;
                         downOnce();
                     }, settings.stepinterval);
@@ -422,8 +417,8 @@
                 spincount = 0;
                 spinning = "up";
 
-                upDelayTimeout = setTimeout(function() {
-                    upSpinTimer = setInterval(function() {
+                upDelayTimeout = setTimeout(function () {
+                    upSpinTimer = setInterval(function () {
                         spincount++;
                         upOnce();
                     }, settings.stepinterval);

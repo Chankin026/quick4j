@@ -1,9 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
 <!DOCTYPE html>
@@ -15,31 +15,31 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <!-- BEGIN HEAD -->
     <head>
         <base href="<%=basePath%>">
-        <meta charset="utf-8" />
+        <meta charset="utf-8"/>
         <title>Quick4j</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="description" />
-        <meta content="" name="author" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
         <meta name="MobileOptimized" content="320">
 
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
         <!-- END GLOBAL MANDATORY STYLES -->
 
         <!-- BEGIN THEME STYLES -->
-        <link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+        <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
         <!-- END THEME STYLES -->
 
-        <link rel="shortcut icon" href="app/img/favicon.ico" />
+        <link rel="shortcut icon" href="app/img/favicon.ico"/>
     </head>
     <!-- END HEAD -->
 
@@ -51,19 +51,20 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             <div class="header-inner">
                 <!-- BEGIN LOGO -->
                 <a class="navbar-brand" href="javascript:;">
-                    <img src="assets/img/logo.png" alt="logo" class="img-responsive" />
+                    <img src="assets/img/logo.png" alt="logo" class="img-responsive"/>
                 </a>
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
                 <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <img
-                    src="assets/img/menu-toggler.png" alt="" />
+                            src="assets/img/menu-toggler.png" alt=""/>
                 </a>
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 <!-- BEGIN TOP NAVIGATION MENU -->
                 <ul class="nav navbar-nav pull-right">
                     <li class="dropdown user">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                           data-close-others="true">
                             <img alt="" src="assets/img/avatar1_small.jpg"/>
                             <span class="username"> ${userInfo.username } </span>
                             <i class="fa fa-angle-down"></i>
@@ -110,14 +111,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                         <li class="start active">
                             <a href="rest/page/dashboard" id="btn-dashboard">
                                 <i class="fa fa-home"></i><span class="title"> 首页 </span><span
-                                class="selected"> </span>
+                                    class="selected"> </span>
                             </a>
                         </li>
 
                         <li class="">
                             <a href="javascript:;">
                                 <i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span
-                                class="arrow "> </span>
+                                    class="arrow "> </span>
                             </a>
                             <ul class="sub-menu">
                                 <li>
@@ -141,7 +142,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                         <li class="">
                             <a href="javascript:;">
                                 <i class="fa fa-user"></i><span class="title"> 个人中心 </span><span
-                                class="arrow "> </span>
+                                    class="arrow "> </span>
                             </a>
                             <ul class="sub-menu">
                                 <li>
@@ -154,26 +155,26 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                         密码修改
                                     </a>
                                 </li>
-                                
+
                                 <!-- 测试权限控制 -->
                                 <shiro:hasAnyRoles name="super_admin">
                                     <li>
                                         <a href="javascript:;">super_admin 拥有此角色</a>
                                     </li>
                                 </shiro:hasAnyRoles>
-                                
+
                                 <shiro:hasPermission name="user:create">
                                     <li>
                                         <a href="javascript:;">user:create 拥有此权限</a>
                                     </li>
                                 </shiro:hasPermission>
-                                
+
                                 <shiro:hasPermission name="user:update">
                                     <li>
                                         <a href="javascript:;">user:update 拥有此权限</a>
                                     </li>
                                 </shiro:hasPermission>
-     
+
                             </ul>
                         </li>
 
@@ -186,11 +187,13 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             <div class="page-content-wrapper">
                 <div class="page-content">
                     <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-                    <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog"
+                         aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-hidden="true"></button>
                                     <h4 class="modal-title">Modal title</h4>
                                 </div>
                                 <div class="modal-body">
@@ -316,7 +319,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
         <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js"
+                type="text/javascript"></script>
         <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>

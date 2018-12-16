@@ -1,10 +1,10 @@
 var FormComponents = function () {
 
-    var handleBootstrapSwitch = function() {
+    var handleBootstrapSwitch = function () {
         $('.radio1').on('switch-change', function () {
             $('.radio1').bootstrapSwitch('toggleRadioState');
         });
-        
+
         // or
         $('.radio1').on('switch-change', function () {
             $('.radio1').bootstrapSwitch('toggleRadioStateAllowUncheck');
@@ -16,10 +16,10 @@ var FormComponents = function () {
         });
     }
 
-    var handleBootstrapTouchSpin = function() {
+    var handleBootstrapTouchSpin = function () {
 
         $("#touchspin_demo1").TouchSpin({
-            inputGroupClass: 'input-medium',            
+            inputGroupClass: 'input-medium',
             spinUpClass: 'green',
             spinDownClass: 'green',
             min: -1000000000,
@@ -27,8 +27,8 @@ var FormComponents = function () {
             stepinterval: 50,
             maxboostedstep: 10000000,
             prefix: '$'
-        }); 
-        
+        });
+
         $("#touchspin_demo2").TouchSpin({
             inputGroupClass: 'input-medium',
             spinUpClass: 'blue',
@@ -40,14 +40,14 @@ var FormComponents = function () {
             boostat: 5,
             maxboostedstep: 10,
             postfix: '%'
-        });         
+        });
     }
 
-    var handleBootstrapMaxlength = function() {
+    var handleBootstrapMaxlength = function () {
         $('#maxlength_defaultconfig').maxlength({
             limitReachedClass: "label label-danger",
         })
-    
+
         $('#maxlength_thresholdconfig').maxlength({
             limitReachedClass: "label label-danger",
             threshold: 20
@@ -78,8 +78,8 @@ var FormComponents = function () {
     var handleSpinners = function () {
         $('#spinner1').spinner();
         $('#spinner2').spinner({disabled: true});
-        $('#spinner3').spinner({value:0, min: 0, max: 10});
-        $('#spinner4').spinner({value:0, step: 5, min: 0, max: 200});
+        $('#spinner3').spinner({value: 0, min: 0, max: 10});
+        $('#spinner4').spinner({value: 0, step: 5, min: 0, max: 200});
     }
 
     var handleWysihtml5 = function () {
@@ -153,7 +153,7 @@ var FormComponents = function () {
                 console.log("Callback has been called!");
                 $('#defaultrange input').val(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
             }
-        );        
+        );
 
         $('#reportrange').daterangepicker({
                 opens: (App.isRTL() ? 'left' : 'right'),
@@ -313,6 +313,7 @@ var FormComponents = function () {
             if (!state.id) return state.text; // optgroup
             return "<img class='flag' src='assets/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
         }
+
         $("#select2_sample4").select2({
             placeholder: "Select a Country",
             allowClear: true,
@@ -429,6 +430,7 @@ var FormComponents = function () {
             if (!state.id) return state.text; // optgroup
             return "<img class='flag' src='assets/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
         }
+
         $("#select2_sample_modal_4").select2({
             allowClear: true,
             formatResult: format,
@@ -655,18 +657,14 @@ var FormComponents = function () {
 
             btn.attr('disabled', true);
 
-            input.attr("readonly", true).
-            attr("disabled", true).
-            addClass("spinner");
+            input.attr("readonly", true).attr("disabled", true).addClass("spinner");
 
             $.post('demo/username_checker.php', {
                 username: input.val()
             }, function (res) {
                 btn.attr('disabled', false);
 
-                input.attr("readonly", false).
-                attr("disabled", false).
-                removeClass("spinner");
+                input.attr("readonly", false).attr("disabled", false).removeClass("spinner");
 
                 if (res.status == 'OK') {
                     input.closest('.form-group').removeClass('has-error').addClass('has-success');
@@ -708,16 +706,12 @@ var FormComponents = function () {
                 return;
             }
 
-            input.attr("readonly", true).
-            attr("disabled", true).
-            addClass("spinner");
+            input.attr("readonly", true).attr("disabled", true).addClass("spinner");
 
             $.post('demo/username_checker.php', {
                 username: input.val()
             }, function (res) {
-                input.attr("readonly", false).
-                attr("disabled", false).
-                removeClass("spinner");
+                input.attr("readonly", false).attr("disabled", false).removeClass("spinner");
 
                 // change popover font color based on the result
                 if (res.status == 'OK') {
